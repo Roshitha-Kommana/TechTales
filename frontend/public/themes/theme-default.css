@@ -1,0 +1,7 @@
+/* theme-default.css - Default Theme (No changes) */
+/* This is an empty theme that resets to the original app styling */
+/* When loaded, it effectively "removes" any active theme */
+/* --- Base Theme Fixes --- */
+button *, a * {
+    color: inherit !important;
+}

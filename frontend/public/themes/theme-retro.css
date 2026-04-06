@@ -1,0 +1,243 @@
+/* theme-retro.css - Retro Oasis (Sunset in Palm Springs) */
+
+/* --- 1. Global Resets --- */
+body {
+    background-color: #FDF6EC !important;
+    color: #2A3B34 !important;
+    font-family: 'Georgia', serif;
+}
+
+p,
+span,
+li {
+    font-family: 'Helvetica', sans-serif;
+    line-height: 1.6;
+    color: #2A3B34 !important;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #6398A9 !important;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* --- 2. Navigation Bar / Sidebar --- */
+.navbar,
+header,
+.sidebar {
+    background-color: #6398A9 !important;
+    border-bottom: 4px solid #D7897F;
+}
+
+.nav-link,
+.sidebar-link {
+    color: #FDF6EC !important;
+    font-weight: bold;
+}
+
+.nav-link:hover,
+.sidebar-link:hover {
+    color: #F9B95C !important;
+}
+
+/* Sidebar specific */
+.sidebar-btn {
+    background-color: transparent !important;
+    color: #FDF6EC !important;
+}
+
+.sidebar-btn:hover,
+.sidebar-btn.active {
+    background-color: #D7897F !important;
+    color: #FFFFFF !important;
+}
+
+/* --- 3. Welcome / Hero Section --- */
+.welcome-section,
+.hero-banner,
+div[class*="bg-amber"],
+div[class*="bg-papaya"] {
+    background-color: #F9B95C !important;
+    color: #2A3B34 !important;
+}
+
+.welcome-section h1,
+.hero-banner h1,
+div[class*="bg-amber"] h1,
+div[class*="bg-amber"] h2 {
+    color: #FFFFFF !important;
+    text-shadow: 3px 3px 0px #D7897F;
+}
+
+/* --- 4. Buttons --- */
+/* Primary: Coral with hard shadow */
+button.primary-btn,
+.btn-primary,
+.cta-button,
+button[class*="bg-brick"],
+button[class*="bg-cyan"] {
+    background-color: #D7897F !important;
+    color: #FFFFFF !important;
+    border: 2px solid #D7897F !important;
+    border-radius: 25px;
+    box-shadow: 0 4px 0px #9A5A53;
+    transition: all 0.2s ease;
+}
+
+button.primary-btn:hover,
+.btn-primary:hover,
+button[class*="bg-brick"]:hover,
+button[class*="bg-cyan"]:hover {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0px #9A5A53;
+}
+
+button.primary-btn:active,
+.btn-primary:active {
+    transform: translateY(4px);
+    box-shadow: none;
+}
+
+/* Secondary: Slate Blue dashed outline */
+button.secondary-btn,
+.btn-secondary {
+    background-color: transparent !important;
+    color: #6398A9 !important;
+    border: 2px dashed #6398A9 !important;
+    border-radius: 25px;
+}
+
+button.secondary-btn:hover,
+.btn-secondary:hover {
+    background-color: #6398A9 !important;
+    color: #FFFFFF !important;
+    border-style: solid !important;
+}
+
+/* --- 5. Story Cards (Polaroid Look) --- */
+.card,
+.story-card,
+.content-box,
+div[class*="rounded-xl"],
+div[class*="rounded-2xl"] {
+    background-color: #FFFFFF !important;
+    border: 1px solid #96C7B3 !important;
+    border-radius: 10px;
+    box-shadow: 8px 8px 0px #96C7B3 !important;
+    color: #2A3B34 !important;
+    transition: all 0.3s ease;
+}
+
+.card:hover,
+.story-card:hover {
+    box-shadow: 12px 12px 0px #96C7B3 !important;
+    transform: translate(-2px, -2px);
+}
+
+.card h3,
+.story-card h3 {
+    color: #D7897F !important;
+}
+
+/* --- 6. Quick Stats --- */
+.stat-box,
+.highlight-section,
+div[class*="bg-gray-50"] {
+    background-color: #96C7B3 !important;
+    color: #FFFFFF !important;
+    border-radius: 15px;
+}
+
+.stat-number {
+    color: #FDF6EC !important;
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+/* --- 7. Main Content Area --- */
+.main-content,
+div[class*="bg-papaya"] {
+    background-color: #FDF6EC !important;
+}
+
+/* --- 8. Footer --- */
+footer {
+    background-color: #6398A9 !important;
+    color: #96C7B3 !important;
+}
+
+footer a {
+    color: #F9B95C !important;
+}
+
+/* --- 9. Links --- */
+a {
+    color: #D7897F !important;
+}
+
+a:hover {
+    color: #6398A9 !important;
+}
+
+/* --- 10. Form Elements --- */
+input,
+textarea,
+select {
+    background-color: #FFFFFF !important;
+    border: 2px solid #96C7B3 !important;
+    color: #2A3B34 !important;
+    border-radius: 15px;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #D7897F !important;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(215, 137, 127, 0.2);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(42, 59, 52, 0.5) !important;
+}
+
+/* --- 11. Icons --- */
+svg,
+.icon {
+    color: #6398A9 !important;
+}
+
+/* --- 12. Scrollbar --- */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #FDF6EC;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #96C7B3;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #D7897F;
+}
+
+/* --- 13. Override white backgrounds --- */
+div[class*="bg-white"] {
+    background-color: #FFFFFF !important;
+    color: #2A3B34 !important;
+}
+/* --- Base Theme Fixes --- */
+button *, a * {
+    color: inherit !important;
+}

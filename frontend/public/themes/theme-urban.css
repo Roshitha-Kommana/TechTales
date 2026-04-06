@@ -1,0 +1,230 @@
+/* theme-urban.css - Urban Nature (Eco-Modern & Professional) */
+
+/* --- 1. Global Resets --- */
+body {
+    background-color: #F4F8F5 !important;
+    color: #1A3540 !important;
+    font-family: 'Verdana', 'Segoe UI', sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #356B80 !important;
+    font-weight: 700;
+}
+
+p,
+span,
+li {
+    color: #1A3540 !important;
+}
+
+/* --- 2. Navigation Bar / Sidebar --- */
+.navbar,
+header,
+.sidebar {
+    background-color: #356B80 !important;
+    box-shadow: 0 2px 10px rgba(53, 107, 128, 0.3);
+}
+
+.nav-link,
+.sidebar-link {
+    color: #FFFFFF !important;
+    font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link.active,
+.sidebar-link:hover {
+    color: #FFBF00 !important;
+}
+
+/* Sidebar specific */
+.sidebar-btn {
+    background-color: transparent !important;
+    color: #FFFFFF !important;
+}
+
+.sidebar-btn:hover,
+.sidebar-btn.active {
+    background-color: #FFBF00 !important;
+    color: #1A3540 !important;
+}
+
+/* --- 3. Welcome / Hero Section --- */
+.welcome-section,
+.hero-banner,
+div[class*="bg-amber"],
+div[class*="bg-papaya"] {
+    background-color: #B3C9B8 !important;
+    color: #1A3540 !important;
+    border-bottom: 5px solid #356B80;
+}
+
+.welcome-section h1,
+.hero-banner h1,
+div[class*="bg-amber"] h1,
+div[class*="bg-amber"] h2 {
+    color: #1A3540 !important;
+}
+
+/* --- 4. Buttons --- */
+/* Primary: Amber "Construction" Style */
+button.primary-btn,
+.btn-primary,
+.cta-button,
+button[class*="bg-brick"],
+button[class*="bg-cyan"] {
+    background-color: #FFBF00 !important;
+    color: #1A3540 !important;
+    border: none !important;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+button.primary-btn:hover,
+.btn-primary:hover,
+button[class*="bg-brick"]:hover,
+button[class*="bg-cyan"]:hover {
+    background-color: #E6AC00 !important;
+    transform: translateY(-2px);
+}
+
+/* Secondary: Teal Outline */
+button.secondary-btn,
+.btn-secondary {
+    background-color: transparent !important;
+    color: #356B80 !important;
+    border: 2px solid #356B80 !important;
+}
+
+button.secondary-btn:hover,
+.btn-secondary:hover {
+    background-color: #356B80 !important;
+    color: #FFFFFF !important;
+}
+
+/* --- 5. Story Cards --- */
+.card,
+.story-card,
+.content-box,
+div[class*="rounded-xl"],
+div[class*="rounded-2xl"] {
+    background-color: #FFFFFF !important;
+    border: 1px solid #D1E0D6 !important;
+    border-top: 4px solid #B3C9B8 !important;
+    border-radius: 8px;
+    color: #1A3540 !important;
+    transition: all 0.3s ease;
+}
+
+.card:hover,
+.story-card:hover {
+    box-shadow: 0 8px 20px rgba(53, 107, 128, 0.15) !important;
+    transform: translateY(-3px);
+}
+
+.card h3,
+.story-card h3 {
+    color: #356B80 !important;
+}
+
+/* --- 6. Quick Stats (High Contrast Strip) --- */
+.stat-box,
+.highlight-section,
+div[class*="bg-gray-50"] {
+    background-color: #356B80 !important;
+    color: #FFFFFF !important;
+}
+
+.stat-number {
+    color: #FFBF00 !important;
+    font-size: 2.5rem;
+    font-weight: 800;
+}
+
+/* --- 7. Main Content Area --- */
+.main-content,
+div[class*="bg-papaya"] {
+    background-color: #F4F8F5 !important;
+}
+
+/* --- 8. Footer --- */
+footer {
+    background-color: #2A5463 !important;
+    color: #B3C9B8 !important;
+}
+
+footer a {
+    color: #FFBF00 !important;
+}
+
+/* --- 9. Links --- */
+a {
+    color: #356B80 !important;
+}
+
+a:hover {
+    color: #FFBF00 !important;
+}
+
+/* --- 10. Form Elements --- */
+input,
+textarea,
+select {
+    background-color: #FFFFFF !important;
+    border: 1px solid #B3C9B8 !important;
+    color: #1A3540 !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #356B80 !important;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(53, 107, 128, 0.2);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(26, 53, 64, 0.5) !important;
+}
+
+/* --- 11. Icons --- */
+svg,
+.icon {
+    color: #356B80 !important;
+}
+
+/* --- 12. Scrollbar --- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F4F8F5;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #B3C9B8;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #356B80;
+}
+
+/* --- 13. Override white backgrounds --- */
+div[class*="bg-white"] {
+    background-color: #FFFFFF !important;
+    color: #1A3540 !important;
+}
+/* --- Base Theme Fixes --- */
+button *, a * {
+    color: inherit !important;
+}

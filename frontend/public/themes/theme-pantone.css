@@ -1,0 +1,233 @@
+/* theme-pantone.css - Pantone (Modern Art Gallery) */
+
+/* --- 1. Global Resets --- */
+body {
+    background-color: #F0EFEB !important;
+    color: #4A453E !important;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    letter-spacing: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #5E7E91 !important;
+    font-weight: 300;
+}
+
+p,
+span,
+li {
+    color: #4A453E !important;
+}
+
+/* --- 2. Navigation Bar / Sidebar --- */
+.navbar,
+header,
+.sidebar {
+    background-color: #FFFFFF !important;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.nav-link,
+.sidebar-link {
+    color: #87B4D5 !important;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.nav-link:hover,
+.sidebar-link:hover {
+    color: #A494AA !important;
+}
+
+/* Sidebar specific */
+.sidebar-btn {
+    background-color: transparent !important;
+    color: #87B4D5 !important;
+}
+
+.sidebar-btn:hover,
+.sidebar-btn.active {
+    background-color: #87B4D5 !important;
+    color: #FFFFFF !important;
+}
+
+/* --- 3. Welcome / Hero Section --- */
+.welcome-section,
+.hero-banner,
+div[class*="bg-amber"],
+div[class*="bg-papaya"] {
+    background-color: #F0EFEB !important;
+    color: #4A453E !important;
+    border-left: 10px solid #87B4D5 !important;
+}
+
+.welcome-section h1,
+.hero-banner h1 {
+    color: #5E7E91 !important;
+}
+
+/* --- 4. Buttons --- */
+/* Primary: Serenity Blue - Sharp corners like color chips */
+button.primary-btn,
+.btn-primary,
+.cta-button,
+button[class*="bg-brick"],
+button[class*="bg-cyan"] {
+    background-color: #87B4D5 !important;
+    color: #FFFFFF !important;
+    border: none !important;
+    border-radius: 0px !important;
+    padding: 12px 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+button.primary-btn:hover,
+.btn-primary:hover,
+button[class*="bg-brick"]:hover,
+button[class*="bg-cyan"]:hover {
+    background-color: #76A0BF !important;
+}
+
+/* Secondary: Mauve Outline */
+button.secondary-btn,
+.btn-secondary {
+    background-color: transparent !important;
+    color: #A494AA !important;
+    border: 2px solid #A494AA !important;
+    border-radius: 0px !important;
+}
+
+button.secondary-btn:hover,
+.btn-secondary:hover {
+    background-color: #A494AA !important;
+    color: #FFFFFF !important;
+}
+
+/* --- 5. Story Cards (Color Swatch Look) --- */
+.card,
+.story-card,
+.content-box,
+div[class*="rounded-xl"],
+div[class*="rounded-2xl"] {
+    background-color: #FFFFFF !important;
+    border: none !important;
+    border-top: 8px solid #CDE3CC !important;
+    border-radius: 0px !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05) !important;
+    color: #4A453E !important;
+    transition: all 0.3s ease;
+}
+
+.card:hover,
+.story-card:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1) !important;
+    transform: translateY(-3px);
+}
+
+.card h3,
+.story-card h3 {
+    color: #4A453E !important;
+}
+
+/* --- 6. Quick Stats (Mauve Block) --- */
+.stat-box,
+.highlight-section,
+div[class*="bg-gray-50"] {
+    background-color: #A494AA !important;
+    color: #FFFFFF !important;
+}
+
+.stat-number {
+    color: #FFFFFF !important;
+    font-weight: 300;
+}
+
+/* --- 7. Main Content Area --- */
+.main-content,
+div[class*="bg-papaya"] {
+    background-color: #F0EFEB !important;
+}
+
+/* --- 8. Footer (Dusty Gold) --- */
+footer {
+    background-color: #D4CD9B !important;
+    color: #4A453E !important;
+}
+
+footer a {
+    color: #FFFFFF !important;
+    text-decoration: underline;
+}
+
+/* --- 9. Links --- */
+a {
+    color: #87B4D5 !important;
+}
+
+a:hover {
+    color: #A494AA !important;
+}
+
+/* --- 10. Form Elements --- */
+input,
+textarea,
+select {
+    background-color: #FFFFFF !important;
+    border: 1px solid #E0E0E0 !important;
+    border-radius: 0px !important;
+    color: #4A453E !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #87B4D5 !important;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(135, 180, 213, 0.2);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgba(74, 69, 62, 0.5) !important;
+}
+
+/* --- 11. Icons --- */
+svg,
+.icon {
+    color: #87B4D5 !important;
+}
+
+/* --- 12. Scrollbar --- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F0EFEB;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #A494AA;
+    border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #87B4D5;
+}
+
+/* --- 13. Override white backgrounds --- */
+div[class*="bg-white"] {
+    background-color: #FFFFFF !important;
+    color: #4A453E !important;
+}
+/* --- Base Theme Fixes --- */
+button *, a * {
+    color: inherit !important;
+}

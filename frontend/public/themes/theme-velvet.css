@@ -1,0 +1,186 @@
+/* theme-velvet.css - Velvet Cream Theme */
+
+/* --- 1. Global Resets & Body --- */
+body {
+    background-color: #FFF6E7 !important;
+    color: #2A0E11 !important;
+    font-family: 'Georgia', serif;
+}
+
+/* --- 2. Navigation Bar / Sidebar --- */
+.navbar,
+header,
+.sidebar {
+    background-color: #FFF6E7 !important;
+    border-bottom: 2px solid #8C2F3A;
+}
+
+.nav-link,
+.sidebar-link {
+    color: #8C2F3A !important;
+    font-weight: 600;
+}
+
+.nav-link:hover,
+.sidebar-link:hover {
+    color: #591D24 !important;
+    text-decoration: underline;
+}
+
+/* Sidebar specific */
+.sidebar-btn {
+    background-color: transparent !important;
+    color: #8C2F3A !important;
+}
+
+.sidebar-btn:hover,
+.sidebar-btn.active {
+    background-color: #8C2F3A !important;
+    color: #FFF6E7 !important;
+}
+
+/* --- 3. Welcome / Hero Section --- */
+.welcome-section,
+.hero-banner {
+    background-color: #FFF6E7 !important;
+    color: #8C2F3A !important;
+}
+
+h1,
+h2,
+h3 {
+    color: #8C2F3A !important;
+}
+
+/* --- 4. Buttons --- */
+/* Primary Button */
+button.primary-btn,
+.btn-primary,
+.cta-button,
+button[class*="bg-brick"],
+button[class*="bg-cyan"] {
+    background-color: #8C2F3A !important;
+    color: #FFF6E7 !important;
+    border: 2px solid #8C2F3A !important;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+button.primary-btn:hover,
+.btn-primary:hover,
+button[class*="bg-brick"]:hover,
+button[class*="bg-cyan"]:hover {
+    background-color: #591D24 !important;
+    border-color: #591D24 !important;
+}
+
+/* Secondary Button */
+button.secondary-btn,
+.btn-secondary {
+    background-color: transparent !important;
+    color: #8C2F3A !important;
+    border: 2px solid #8C2F3A !important;
+}
+
+button.secondary-btn:hover,
+.btn-secondary:hover {
+    background-color: #8C2F3A !important;
+    color: #FFF6E7 !important;
+}
+
+/* --- 5. Story Cards & Containers --- */
+.card,
+.story-card,
+.content-box,
+div[class*="rounded-xl"],
+div[class*="rounded-2xl"] {
+    background-color: #FFFFFF !important;
+    border: 1px solid #E6DCCF !important;
+    box-shadow: 4px 4px 0px #8C2F3A !important;
+    color: #2A0E11 !important;
+}
+
+/* --- 6. Quick Stats / Highlights --- */
+.stat-box,
+.highlight-section,
+div[class*="bg-gray-50"] {
+    background-color: rgba(140, 47, 58, 0.08) !important;
+    border-left: 5px solid #8C2F3A !important;
+    color: #8C2F3A !important;
+}
+
+/* --- 7. Main Content Area --- */
+.main-content,
+div[class*="bg-papaya"] {
+    background-color: #FFF6E7 !important;
+}
+
+/* --- 8. Footer --- */
+footer {
+    background-color: #8C2F3A !important;
+    color: #FFF6E7 !important;
+}
+
+footer a {
+    color: #FFD1D6 !important;
+}
+
+/* --- 9. Text Colors --- */
+p,
+span,
+li {
+    color: #2A0E11 !important;
+}
+
+/* Links */
+a {
+    color: #8C2F3A !important;
+}
+
+a:hover {
+    color: #591D24 !important;
+}
+
+/* --- 10. Form Elements --- */
+input,
+textarea,
+select {
+    background-color: #FFFFFF !important;
+    border: 1px solid #E6DCCF !important;
+    color: #2A0E11 !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #8C2F3A !important;
+    outline: none;
+}
+
+/* --- 11. Icons & Decorative --- */
+svg,
+.icon {
+    color: #8C2F3A !important;
+}
+
+/* --- 12. Scrollbar (Optional but nice) --- */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #FFF6E7;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #8C2F3A;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #591D24;
+}
+/* --- Base Theme Fixes --- */
+button *, a * {
+    color: inherit !important;
+}

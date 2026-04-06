@@ -1,0 +1,932 @@
+/* theme-bw.css - Black & White Dark Theme */
+
+/* --- 1. Global Resets --- */
+body {
+    background-color: #0a0a0a !important;
+    color: #ffffff !important;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #ffffff !important;
+}
+
+p,
+span,
+li {
+    color: #e0e0e0 !important;
+}
+
+/* Exception: Story name in notes should be black */
+span[class*="bg-cyan-100"],
+span[class*="text-black"],
+span[class*="px-2"][class*="py-1"][class*="bg-cyan"],
+span[class*="px-2"][class*="py-1"][class*="rounded"] {
+    color: #000000 !important;
+}
+
+/* Exception: Key Concepts You Learned - Black text for visibility */
+div.max-w-4xl.bg-white.rounded-xl.shadow-lg,
+div[class*="max-w-4xl"][class*="bg-white"][class*="rounded-xl"][class*="shadow-lg"] p,
+div[class*="max-w-4xl"][class*="bg-white"][class*="rounded-xl"][class*="shadow-lg"] span,
+div[class*="max-w-4xl"][class*="bg-white"][class*="rounded-xl"][class*="shadow-lg"] div {
+    color: #000000 !important;
+}
+
+/* Key Concepts heading - WHITE text */
+div[class*="max-w-4xl"][class*="bg-white"][class*="rounded-xl"][class*="shadow-lg"] h3 {
+    color: #ffffff !important;
+}
+
+/* Reset all divs to inherit color */
+div {
+    color: #e0e0e0 !important;
+}
+
+/* Storybook text - Black on vintage paper backgrounds */
+p[style*="Georgia"],
+p[style*="justify"],
+div[style*="d4c4a8"] *,
+div[style*="c9b896"] *,
+div[style*="bfae85"] * {
+    color: #000000 !important;
+}
+
+/* Ensure sidebar has correct colors */
+.sidebar p,
+.sidebar span,
+.sidebar li,
+.sidebar h1,
+.sidebar h2,
+.sidebar h3 {
+    color: #000000 !important;
+}
+
+/* --- 2. Sidebar (Light Background) --- */
+.sidebar,
+div[class*="shadow-2xl"] {
+    background-color: #f5f5f5 !important;
+    border-right: 2px solid #333 !important;
+}
+
+.sidebar button {
+    background-color: #2c2c2c !important;
+    color: #ffffff !important;
+    border: 1px solid #444 !important;
+}
+
+.sidebar button:hover {
+    background-color: #3c3c3c !important;
+}
+
+.sidebar button * {
+    color: #ffffff !important;
+}
+
+/* --- 3. Main Content & Cards --- */
+.main-content,
+div[class*="bg-papaya"],
+.card,
+.story-card,
+.content-box,
+.quiz-container,
+div[class*="rounded-lg"],
+div[class*="rounded-xl"],
+div[class*="rounded-2xl"],
+div[class*="bg-white"],
+div[class*="bg-gray"] {
+    background-color: #1f1f1f !important;
+    border: 1px solid #3a3a3a !important;
+    color: #e0e0e0 !important;
+}
+
+.card *,
+.story-card *,
+.content-box *,
+.quiz-container *,
+div[class*="rounded-lg"] *,
+div[class*="rounded-xl"] *,
+div[class*="bg-white"] *,
+div[class*="bg-gray"] * {
+    color: #e0e0e0 !important;
+}
+
+.card:hover,
+.story-card:hover,
+div[class*="rounded-xl"]:hover {
+    border-color: #6a6a6a !important;
+}
+
+/* --- 4. Buttons --- */
+button,
+.btn-primary,
+.btn-secondary,
+button[class*="bg-cyan"],
+button[class*="bg-brick"],
+button[class*="bg-amber"] {
+    background-color: #2c2c2c !important;
+    color: #ffffff !important;
+    border: 1px solid #444 !important;
+}
+
+button:hover,
+.btn-primary:hover,
+button[class*="bg-cyan"]:hover {
+    background-color: #3c3c3c !important;
+    border-color: #666 !important;
+}
+
+button *,
+.btn-primary *,
+button[class*="bg-cyan"] * {
+    color: #ffffff !important;
+}
+
+/* --- 5. Forms --- */
+input,
+textarea,
+select {
+    background-color: #1f1f1f !important;
+    border: 1px solid #3a3a3a !important;
+    color: #e0e0e0 !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #666 !important;
+    outline: none;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #888 !important;
+}
+
+/* --- 6. Stats --- */
+.stat-box,
+.highlight-section,
+div[class*="bg-gray-50"] {
+    background-color: #1f1f1f !important;
+    border: 1px solid #3a3a3a !important;
+    color: #e0e0e0 !important;
+}
+
+.stat-number {
+    color: #ffffff !important;
+}
+
+/* --- 7. Links --- */
+a {
+    color: #ffffff !important;
+}
+
+a:hover {
+    color: #cccccc !important;
+}
+
+/* --- 8. Footer --- */
+footer {
+    background-color: #000000 !important;
+    border-top: 1px solid #3a3a3a !important;
+    color: #cccccc !important;
+}
+
+footer a {
+    color: #ffffff !important;
+}
+
+footer * {
+    color: #cccccc !important;
+}
+
+/* --- 9. Scrollbar --- */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #404040;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #5a5a5a;
+}
+
+/* --- 10. Icons --- */
+svg {
+    color: #ffffff !important;
+}
+
+.sidebar svg {
+    color: #000000 !important;
+}
+
+/* --- 11. Modals --- */
+.modal,
+.modal-content,
+[role="dialog"] {
+    background-color: #1f1f1f !important;
+    border: 1px solid #3a3a3a !important;
+    color: #e0e0e0 !important;
+}
+
+.modal *,
+[role="dialog"] * {
+    color: #e0e0e0 !important;
+}
+
+/* --- 12. Quiz Options --- */
+.quiz-option,
+.option-button {
+    background-color: #1f1f1f !important;
+    border: 1px solid #3a3a3a !important;
+    color: #e0e0e0 !important;
+}
+
+.quiz-option:hover,
+.option-button:hover {
+    background-color: #2c2c2c !important;
+    border-color: #6a6a6a !important;
+}
+
+.quiz-option.selected {
+    background-color: #3a3a3a !important;
+}
+
+.quiz-option *,
+.option-button * {
+    color: #e0e0e0 !important;
+}
+
+/* --- 13. Active States --- */
+.active,
+.selected,
+[aria-pressed="true"],
+[aria-selected="true"] {
+    background-color: #3a3a3a !important;
+    color: #ffffff !important;
+}
+
+.active *,
+[aria-pressed="true"] * {
+    color: #ffffff !important;
+}
+
+/* --- 14. Text Utilities --- */
+strong,
+b,
+.font-bold,
+[class*="font-bold"] {
+    color: #ffffff !important;
+}
+
+* {
+    caret-color: #ffffff;
+}
+
+/* --- 15. Library Page Specific Styling --- */
+/* Main library container */
+div[class*="min-h-screen"][class*="from-amber-50"],
+div[class*="from-amber-50"],
+.min-h-screen.bg-gradient-to-br {
+    background-color: #0a0a0a !important;
+    background-image: none !important;
+}
+
+div[class*="from-amber-50"] * {
+    color: #e0e0e0 !important;
+}
+
+div[class*="from-amber-50"] h1,
+.min-h-screen.bg-gradient-to-br h1 {
+    color: #ffffff !important;
+}
+
+div[class*="from-amber-50"] h1[class*="font-bold"],
+.min-h-screen.bg-gradient-to-br h1[class*="font-bold"] {
+    color: #ffffff !important;
+}
+
+div[class*="from-amber-50"] a,
+.min-h-screen.bg-gradient-to-br a {
+    color: #ffffff !important;
+}
+
+/* Story cards in Library */
+div[class*="from-amber-50"] div[class*="bg-white"],
+.min-h-screen.bg-gradient-to-br div[class*="bg-white"] {
+    background-color: #1f1f1f !important;
+    border-color: #3a3a3a !important;
+}
+
+div[class*="from-amber-50"] div[class*="bg-white"] h3,
+div[class*="from-amber-50"] div[class*="bg-white"] p,
+.min-h-screen.bg-gradient-to-br div[class*="bg-white"] h3,
+.min-h-screen.bg-gradient-to-br div[class*="bg-white"] p {
+    color: #e0e0e0 !important;
+}
+
+div[class*="from-amber-50"] button[class*="bg-primary"],
+.min-h-screen.bg-gradient-to-br button[class*="bg-primary"] {
+    background-color: #3c3c3c !important;
+}
+
+div[class*="from-amber-50"] button[class*="bg-primary"]:hover,
+.min-h-screen.bg-gradient-to-br button[class*="bg-primary"]:hover {
+    background-color: #5a5a5a !important;
+}
+
+/* --- 16. Leaderboard Page Specific Styling --- */
+/* Main leaderboard container */
+div[class*="bg-papaya"] {
+    background-color: #0a0a0a !important;
+}
+
+div[class*="bg-papaya"] * {
+    color: #e0e0e0 !important;
+}
+
+div[class*="bg-papaya"] h1,
+div[class*="bg-papaya"] h2,
+div[class*="bg-papaya"] h3 {
+    color: #ffffff !important;
+}
+
+div[class*="bg-papaya"] div[class*="bg-white"] {
+    background-color: #1f1f1f !important;
+    border-color: #3a3a3a !important;
+}
+
+div[class*="bg-papaya"] div[class*="bg-white"] * {
+    color: #e0e0e0 !important;
+}
+
+div[class*="bg-papaya"] div[class*="bg-white"] h3,
+div[class*="bg-papaya"] div[class*="bg-white"] strong {
+    color: #ffffff !important;
+}
+
+/* Rank cards styling */
+div[class*="bg-white"][class*="border-2"] {
+    background-color: #2a2a2a !important;
+}
+
+div[class*="from-yellow-100"],
+div[class*="from-gray-100"],
+div[class*="from-orange-100"] {
+    background-color: #2a2a2a !important;
+    border-color: #4a4a4a !important;
+}
+
+/* Leaderboard legend */
+div[class*="bg-papaya"] button[class*="bg-cyan"],
+div[class*="bg-papaya"] button[class*="bg-primary"] {
+    background-color: #3c3c3c !important;
+}
+
+/* --- 17. Quiz Component Specific Styling --- */
+.max-w-4xl[class*="bg-white"][class*="rounded-lg"] {
+    background-color: #1f1f1f !important;
+    border-color: #3a3a3a !important;
+}
+
+.max-w-4xl[class*="bg-white"][class*="rounded-lg"] h2,
+.max-w-4xl[class*="bg-white"][class*="rounded-lg"] h3 {
+    color: #ffffff !important;
+}
+
+.max-w-4xl[class*="bg-white"][class*="rounded-lg"] p {
+    color: #e0e0e0 !important;
+}
+
+/* Quiz progress bar */
+div[class*="bg-gray-200"][class*="rounded-full"] {
+    background-color: #3a3a3a !important;
+}
+
+div[class*="bg-primary-600"][class*="rounded-full"] {
+    background-color: #7a7a7a !important;
+}
+
+/* Quiz options */
+div[class*="bg-purple-50"] {
+    background-color: #2a2a2a !important;
+    border-color: #6a6a6a !important;
+}
+
+div[class*="border-purple-400"] {
+    border-color: #6a6a6a !important;
+}
+
+div[class*="border-gray-200"][class*="hover:border-purple"] {
+    border-color: #555555 !important;
+    background-color: #1f1f1f !important;
+}
+
+div[class*="border-gray-200"][class*="hover:border-purple"]:hover {
+    background-color: #2a2a2a !important;
+    border-color: #6a6a6a !important;
+}
+
+/* Correct/Wrong options */
+div[class*="bg-green-50"] {
+    background-color: rgba(16, 185, 129, 0.2) !important;
+    border-color: #10b981 !important;
+}
+
+div[class*="bg-red-50"] {
+    background-color: rgba(239, 68, 68, 0.2) !important;
+    border-color: #ef4444 !important;
+}
+
+.max-w-4xl[class*="bg-white"][class*="rounded-lg"] button[class*="bg-gray-200"] {
+    background-color: #3a3a3a !important;
+    color: #999999 !important;
+}
+
+/* --- 19. Library Page Enhancements --- */
+div[class*="from-amber-50"] {
+    background-color: #0a0a0a !important;
+}
+
+div[class*="from-amber-50"] * {
+    color: #e0e0e0 !important;
+}
+
+div[class*="from-amber-50"] h1,
+div[class*="from-amber-50"] h2,
+div[class*="from-amber-50"] h3 {
+    color: #ffffff !important;
+}
+
+/* Story cards in Library */
+div[class*="from-amber-50"] div[class*="bg-white"] {
+    background-color: #1f1f1f !important;
+    border-color: #3a3a3a !important;
+}
+
+div[class*="from-amber-50"] div[class*="bg-white"] * {
+    color: #e0e0e0 !important;
+}
+
+div[class*="from-amber-50"] div[class*="bg-white"] h3,
+div[class*="from-amber-50"] div[class*="bg-white"] p {
+    color: #e0e0e0 !important;
+}
+
+div[class*="from-amber-50"] button,
+div[class*="from-amber-50"] .btn-primary {
+    background-color: #3c3c3c !important;
+    color: #ffffff !important;
+    border: 1px solid #3c3c3c !important;
+}
+
+div[class*="from-amber-50"] button:hover {
+    background-color: #5a5a5a !important;
+}
+
+/* --- 20. Leaderboard Page Enhancements --- */
+div[class*="bg-papaya"] {
+    background-color: #0a0a0a !important;
+}
+
+div[class*="bg-papaya"] * {
+    color: #e0e0e0 !important;
+}
+
+div[class*="bg-papaya"] h1,
+div[class*="bg-papaya"] h2,
+div[class*="bg-papaya"] h3 {
+    color: #ffffff !important;
+}
+
+div[class*="bg-papaya"] h4 {
+    color: #ffffff !important;
+}
+
+/* Leaderboard header */
+div[class*="bg-papaya"] div[class*="bg-white"][class*="shadow-sm"] {
+    background-color: #1f1f1f !important;
+    border: none !important;
+}
+
+div[class*="bg-papaya"] div[class*="bg-white"][class*="shadow-sm"] * {
+    color: #e0e0e0 !important;
+}
+
+/* Leaderboard rank cards */
+div[class*="bg-papaya"] div[class*="bg-white"][class*="rounded-xl"] {
+    background-color: #1f1f1f !important;
+    border: 1px solid #3a3a3a !important;
+}
+
+div[class*="bg-papaya"] div[class*="bg-white"][class*="rounded-xl"] * {
+    color: #e0e0e0 !important;
+}
+
+div[class*="bg-papaya"] div[class*="bg-white"][class*="rounded-xl"] h3,
+div[class*="bg-papaya"] div[class*="bg-white"][class*="rounded-xl"] strong,
+div[class*="bg-papaya"] div[class*="bg-white"][class*="rounded-xl"] span,
+div[class*="bg-papaya"] div[class*="bg-white"][class*="rounded-xl"] p {
+    color: #ffffff !important;
+}
+
+/* Leaderboard legend box */
+div[class*="bg-papaya"] div[class*="rounded-xl"][class*="bg-white"] {
+    background-color: #1f1f1f !important;
+    border: 1px solid #3a3a3a !important;
+}
+
+div[class*="bg-papaya"] div[class*="rounded-xl"][class*="bg-white"] * {
+    color: #e0e0e0 !important;
+}
+
+/* How to Earn Points section */
+div[class*="bg-papaya"] .mt-8[class*="bg-white"] {
+    background-color: #1f1f1f !important;
+    border: 1px solid #3a3a3a !important;
+}
+
+div[class*="bg-papaya"] .mt-8[class*="bg-white"] * {
+    color: #e0e0e0 !important;
+}
+
+div[class*="bg-papaya"] .mt-8[class*="bg-white"] h3 {
+    color: #ffffff !important;
+}
+
+div[class*="bg-papaya"] .mt-8[class*="bg-white"] div[class*="bg-"] {
+    background-color: #2a2a2a !important;
+    border-color: #3a3a3a !important;
+}
+
+div[class*="bg-papaya"] .mt-8[class*="bg-white"] div[class*="text-green"],
+div[class*="bg-papaya"] .mt-8[class*="bg-white"] div[class*="text-blue"],
+div[class*="bg-papaya"] .mt-8[class*="bg-white"] div[class*="text-orange"] {
+    color: inherit !important;
+}
+
+/* Leaderboard buttons */
+div[class*="bg-papaya"] button[class*="bg-"] {
+    background-color: #3c3c3c !important;
+    color: #ffffff !important;
+}
+
+div[class*="bg-papaya"] button[class*="bg-"]:hover {
+    background-color: #5a5a5a !important;
+}
+
+
+/* --- 21. Key Points Section (StoryBook) - Keep original styling, no override --- */
+/* Story book pages keep their original vintage paper look - we exclude them from dark theme */
+
+/* --- 22. Enhanced Quiz Option Selection --- */
+/* Selected quiz option in dark theme - button elements */
+button[class*="border-purple-400"][class*="bg-purple-50"],
+button.border-purple-400,
+div[class*="border-purple-400"][class*="bg-purple-50"] {
+    background-color: #2a2a2a !important;
+    border-color: #ffffff !important;
+    border-width: 2px !important;
+}
+
+button[class*="border-purple-400"][class*="bg-purple-50"] span,
+button.border-purple-400 span,
+div[class*="border-purple-400"][class*="bg-purple-50"] span {
+    color: #ffffff !important;
+}
+
+button[class*="border-purple-400"][class*="bg-purple-50"],
+button[class*="border-purple-400"] {
+    color: #ffffff !important;
+}
+
+button[class*="border-purple-400"] span[class*="text-gray"] {
+    color: #ffffff !important;
+}
+
+/* Green success option - correct answer */
+button[class*="border-green-500"],
+button[class*="bg-green-50"] {
+    background-color: rgba(16, 185, 129, 0.15) !important;
+    border-color: #10b981 !important;
+}
+
+button[class*="border-green-500"] span,
+button[class*="bg-green-50"] span {
+    color: #ffffff !important;
+}
+
+/* Red error option - incorrect answer */
+button[class*="border-red-500"],
+button[class*="bg-red-50"] {
+    background-color: rgba(239, 68, 68, 0.15) !important;
+    border-color: #ef4444 !important;
+}
+
+button[class*="border-red-500"] span,
+button[class*="bg-red-50"] span {
+    color: #ffffff !important;
+}
+
+/* Default unselected quiz options */
+button[class*="border-gray-200"][class*="hover:border-purple"],
+button.border-gray-200 {
+    background-color: #1f1f1f !important;
+    border-color: #3a3a3a !important;
+    color: #ffffff !important;
+}
+
+button[class*="border-gray-200"] span,
+button.border-gray-200 span {
+    color: #ffffff !important;
+}
+
+/* --- 24. Story Book Read Button --- */
+button[class*="bg-amber"][class*="text-amber"],
+button[class*="hover:bg-amber"] {
+    background-color: #2c2c2c !important;
+    color: #ffffff !important;
+    border: 1px solid #444 !important;
+}
+
+button[class*="bg-amber"][class*="text-amber"]:hover,
+button[class*="hover:bg-amber"]:hover {
+    background-color: #3c3c3c !important;
+}
+
+/* --- 25. Notes Page Styling --- */
+/* Notes page background */
+div[class*="min-h-screen"] {
+    background-color: #0a0a0a !important;
+}
+
+/* Notes heading */
+h1[class*="text-4xl"][class*="font-bold"],
+h1[class*="text-3xl"] {
+    color: #ffffff !important;
+}
+
+/* Back button */
+button[class*="text-primary"],
+a[class*="text-primary"] {
+    color: #ffffff !important;
+}
+
+/* Note card styling */
+div[class*="bg-gray-800"],
+div[class*="bg-white"][class*="rounded-lg"][class*="shadow-md"],
+div[class*="bg-white"][class*="rounded-lg"][class*="shadow"] {
+    background-color: #1f1f1f !important;
+    border: 1px solid #3a3a3a !important;
+    color: #e0e0e0 !important;
+}
+
+div[class*="bg-white"][class*="rounded-lg"] h3[class*="font-semibold"],
+div[class*="bg-white"][class*="rounded-lg"] .font-semibold {
+    color: #ffffff !important;
+}
+
+div[class*="bg-white"][class*="rounded-lg"] p[class*="text-gray"],
+div[class*="bg-white"][class*="rounded-lg"] p {
+    color: #d0d0d0 !important;
+}
+
+/* Story name badge in notes - MUST BE BLACK */
+span[class*="bg-cyan-100"] {
+    background-color: #e0e0e0 !important;
+    color: #000000 !important;
+    border: 1px solid #888888 !important;
+    font-weight: 600 !important;
+}
+
+span[class*="bg-cyan"] {
+    color: #000000 !important;
+}
+
+span[class*="text-cyan"],
+button[class*="bg-cyan"],
+span[class*="bg-cyan-100"] {
+    background-color: #e0e0e0 !important;
+    color: #000000 !important;
+    border: 1px solid #888888 !important;
+    font-weight: 600 !important;
+}
+
+span[class*="bg-cyan-100"] * {
+    color: #000000 !important;
+}
+
+/* Note title */
+h3[class*="text-lg"][class*="font-semibold"],
+h2[class*="font-bold"] {
+    color: #ffffff !important;
+}
+
+/* Note content and metadata */
+p[class*="text-gray"][class*="line-clamp"],
+span[class*="text-gray\"] {
+    color: #e0e0e0 !important;
+}
+
+/* Default unselected quiz options */
+div[class*="border-gray-200"][class*="hover:border-purple"] {
+    background-color: #1f1f1f !important;
+    border-color: #3a3a3a !important;
+    color: #ffffff !important;
+}
+
+div[class*="border-gray-200"][class*="hover:border-purple"] * {
+    color: #ffffff !important;
+}
+
+/* --- 23. Key Concepts / Key Points Discovered - StoryView --- */
+/* Container styling */
+div[class*="border-b-2"] {
+    border-color: #3a3a3a !important;
+}
+
+/* Key Concepts heading and content */
+span[class*="font-bold"][class*="text-lg"],
+h3[class*="font-bold"][class*="text-lg"],
+h2[class*="font-bold"] {
+    color: #ffffff !important;
+}
+
+/* Pill/badge styling for key concepts - TEXT MUST BE BLACK */
+span[class*="px-3"][class*="py-1"][class*="rounded-full"],
+div[class*="px-3"][class*="py-1"][class*="rounded-full"],
+button[class*="px-3"][class*="py-1"][class*="rounded-full"],
+span[class*="px-4"][class*="py-2"][class*="rounded-full"],
+button[class*="px-4"][class*="py-2"][class*="rounded-full"] {
+    background-color: #f5f5f5 !important;
+    color: #000000 !important;
+    border: 1px solid #888888 !important;
+}
+
+span[class*="px-3"][class*="py-1"][class*="rounded-full"] *,
+div[class*="px-3"][class*="py-1"][class*="rounded-full"] *,
+button[class*="px-3"][class*="py-1"][class*="rounded-full"] *,
+span[class*="px-4"][class*="py-2"][class*="rounded-full"] *,
+button[class*="px-4"][class*="py-2"][class*="rounded-full"] * {
+    color: #000000 !important;
+}
+
+.max-w-4xl[class*="bg-white"][class*="rounded-lg"] button[class*="bg-primary"] {
+    background-color: #2156c2 !important;
+}
+
+.max-w-4xl[class*="bg-white"][class*="rounded-lg"] button[class*="bg-green"] {
+    background-color: #059669 !important;
+}
+
+/* Quiz indicator dots */
+button[class*="w-2.5"][class*="rounded-full"],
+button[class*="w-3"][class*="rounded-full"] {
+    background-color: #4a4a4a !important;
+}
+
+button[class*="bg-primary-600"][class*="rounded-full"] {
+    background-color: #2156c2 !important;
+}
+
+button[class*="bg-primary-300"][class*="rounded-full"] {
+    background-color: #4a90e2 !important;
+}
+
+/* --- 18. Analytics Page Specific Styling --- */
+.max-w-7xl[class*="bg-papaya"] {
+    background-color: #0a0a0a !important;
+}
+
+.max-w-7xl[class*="bg-papaya"] * {
+    color: #e0e0e0 !important;
+}
+
+.max-w-7xl[class*="bg-papaya"] h1,
+.max-w-7xl[class*="bg-papaya"] h2,
+.max-w-7xl[class*="bg-papaya"] h3 {
+    color: #ffffff !important;
+}
+
+/* Analytics cards */
+.max-w-7xl[class*="bg-papaya"] div[class*="bg-white"] {
+    background-color: #1f1f1f !important;
+    border-color: #3a3a3a !important;
+}
+
+.max-w-7xl[class*="bg-papaya"] div[class*="bg-white"] * {
+    color: #e0e0e0 !important;
+}
+
+.max-w-7xl[class*="bg-papaya"] div[class*="bg-white"] h3,
+.max-w-7xl[class*="bg-papaya"] div[class*="bg-white"] strong {
+    color: #ffffff !important;
+}
+
+/* Analytics header */
+.max-w-7xl[class*="bg-papaya"] div[class*="bg-gray-100"] {
+    background-color: #2a2a2a !important;
+}
+
+.max-w-7xl[class*="bg-papaya"] div[class*="bg-gray-100"] button {
+    background-color: transparent !important;
+    color: #999999 !important;
+}
+
+.max-w-7xl[class*="bg-papaya"] div[class*="bg-gray-100"] button[class*="bg-white"] {
+    background-color: #2156c2 !important;
+    color: #ffffff !important;
+}
+
+/* Achievement cards */
+div[class*="from-yellow-50"],
+div[class*="to-amber-50"],
+div[class*="border-yellow-300"] {
+    background-color: #2a2a2a !important;
+    border-color: #f59e0b !important;
+}
+
+div[class*="bg-gray-50"] {
+    background-color: #1f1f1f !important;
+    border-color: #3a3a3a !important;
+}
+
+/* Charts and Tooltips */
+.recharts-wrapper {
+    filter: invert(0) !important;
+}
+
+div[style*="backgroundColor"][style*="border"] {
+    background-color: #1f1f1f !important;
+    border-color: #3a3a3a !important;
+    color: #ffffff !important;
+}
+
+/* --- 26. Key Concepts Display Styling (Black & White Theme) --- */
+/* Container with light background for visibility */
+div.max-w-4xl.bg-white.rounded-xl.shadow-lg,
+div[class*="max-w-4xl"][class*="bg-white"][class*="rounded-xl"][class*="shadow-lg"] {
+    background-color: #ffffff !important;
+    border: 2px solid #333 !important;
+}
+
+div.max-w-4xl.bg-white.rounded-xl.shadow-lg > *:not(h3),
+div[class*="max-w-4xl"][class*="bg-white"][class*="rounded-xl"][class*="shadow-lg"] > *:not(h3) {
+    color: #000000 !important;
+}
+
+/* Key Concepts heading - WHITE text */
+div.max-w-4xl.bg-white.rounded-xl h3,
+div.max-w-4xl.bg-white.rounded-xl.shadow-lg h3 {
+    color: #ffffff !important;
+    text-shadow: none !important;
+}
+
+/* Star icon color */
+div.max-w-4xl.bg-white.rounded-xl svg,
+div.max-w-4xl.bg-white.rounded-xl.shadow-lg svg {
+    color: #fbbf24 !important;
+}
+
+/* All spans and text within Key Concepts */
+div.max-w-4xl.bg-white.rounded-xl.shadow-lg span,
+div.max-w-4xl.bg-white.rounded-xl span {
+    color: #000000 !important;
+}
+
+/* Concept pills - MUST BE BLACK TEXT */
+div.max-w-4xl.bg-white.rounded-xl.shadow-lg div[class*="px-4"][class*="py-2"],
+div[class*="max-w-4xl"][class*="bg-white"] div[class*="px-4"][class*="py-2"][class*="rounded-full"] {
+    background-color: #ffffff !important;
+    border: 2px solid #000000 !important;
+    color: #000000 !important;
+}
+
+div.max-w-4xl.bg-white.rounded-xl.shadow-lg div[class*="rounded-full"] *,
+div.max-w-4xl.bg-white.rounded-xl.shadow-lg div[class*="px-4"][class*="py-2"] *,
+div.max-w-4xl.bg-white.rounded-xl div[class*="px-4"] span {
+    color: #000000 !important;
+    font-weight: 600 !important;
+}
+
+/* Target FaStar icon inside Key Concepts */
+div.max-w-4xl.bg-white.rounded-xl.shadow-lg div:first-child svg {
+    color: #fbbf24 !important;
+}
+
+/* Ensure all text in concept pills is visible */
+div.max-w-4xl.bg-white div[class*="gap"] div,
+div.max-w-4xl.bg-white div[class*="flex-wrap"] div {
+    color: #000000 !important;
+}
