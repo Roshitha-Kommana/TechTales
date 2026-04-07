@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
+import { ServerWakingProvider } from './context/ServerWakingContext';
+import ServerWakingIndicator from './components/ServerWakingIndicator';
+import { useInitializeApiRetry } from './hooks/useInitializeApiRetry';
 import Home from './pages/Home';
 import StoryView from './pages/StoryView';
 import Library from './pages/Library';
@@ -14,15 +17,18 @@ import ProtectedRoute from './components/ProtectedRoute';
 import { initializeTheme } from './components/ThemeSwitcher';
 import './App.css';
 
-function App() {
+function AppContent() {
   // Initialize theme from localStorage on app load
   useEffect(() => {
     initializeTheme();
   }, []);
 
+  // Initialize API retry interceptor with context
+  useInitializeApiRetry();
 
   return (
     <Router>
+      <ServerWakingIndicator />
       <Toaster
         position="top-center"
         containerStyle={{
@@ -114,6 +120,14 @@ function App() {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
+  );
+}
+
+function App() {
+  return (
+    <ServerWakingProvider>
+      <AppContent />
+    </ServerWakingProvider>
   );
 }
 

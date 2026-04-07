@@ -86,6 +86,7 @@ api.interceptors.request.use(
 );
 
 // Response interceptor for error handling
+// Retry logic will be added by useInitializeApiRetry hook in App.tsx
 api.interceptors.response.use(
   (response) => response,
   (error) => {
@@ -397,4 +398,5 @@ export const ttsApi = {
 };
 
 export default api;
+export { api };
 
