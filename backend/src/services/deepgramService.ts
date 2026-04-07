@@ -1,6 +1,10 @@
 import { DeepgramClient } from '@deepgram/sdk';
 
-const DEEPGRAM_API_KEY = process.env.DEEPGRAM_API_KEY || '70d9874f7d2f960d12edae32a8335a567b332c8b';
+const DEEPGRAM_API_KEY = process.env.DEEPGRAM_API_KEY;
+
+if (!DEEPGRAM_API_KEY) {
+  throw new Error('DEEPGRAM_API_KEY must be set in environment variables. Do not hardcode API keys.');
+}
 
 const wavHeader = [
   0x52, 0x49, 0x46, 0x46, // "RIFF"

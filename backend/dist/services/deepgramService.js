@@ -1,7 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.deepgramService = exports.DeepgramService = void 0;
-const DEEPGRAM_API_KEY = process.env.DEEPGRAM_API_KEY || '70d9874f7d2f960d12edae32a8335a567b332c8b';
+const DEEPGRAM_API_KEY = process.env.DEEPGRAM_API_KEY;
+if (!DEEPGRAM_API_KEY) {
+    throw new Error('DEEPGRAM_API_KEY must be set in environment variables. Do not hardcode API keys.');
+}
 const wavHeader = [
     0x52, 0x49, 0x46, 0x46, // "RIFF"
     0x00, 0x00, 0x00, 0x00, // Placeholder for file size

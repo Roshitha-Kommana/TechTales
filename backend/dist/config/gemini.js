@@ -8,15 +8,15 @@ const generative_ai_1 = require("@google/generative-ai");
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 // API Key 1: For story generation and image prompt generation
-const GEMINI_API_KEY_1 = process.env.GEMINI_API_KEY_1 || 'AIzaSyBL8Z_qif_1Scu71G1v3urGry9PgxoXR3c';
+const GEMINI_API_KEY_1 = process.env.GEMINI_API_KEY_1;
 // API Key 2: For quiz generation (can be used as fallback)
-const GEMINI_API_KEY_2 = process.env.GEMINI_API_KEY_2 || 'AIzaSyB30HfF-nBO3go6SWXHx-uT88J2p-2ugnk';
+const GEMINI_API_KEY_2 = process.env.GEMINI_API_KEY_2;
 // API Key 3: For image generation
-const GEMINI_API_KEY_3 = process.env.GEMINI_API_KEY_3 || 'AIzaSyANxQZIGVpFBKRMzkDTEYAQ96dZ6xgJFfY';
+const GEMINI_API_KEY_3 = process.env.GEMINI_API_KEY_3;
 // API Key 4: Additional key for increased quota capacity
-const GEMINI_API_KEY_4 = process.env.GEMINI_API_KEY_4 || '';
-if (!GEMINI_API_KEY_1 || !GEMINI_API_KEY_2) {
-    throw new Error('GEMINI_API_KEY_1 and GEMINI_API_KEY_2 must be set in environment variables');
+const GEMINI_API_KEY_4 = process.env.GEMINI_API_KEY_4;
+if (!GEMINI_API_KEY_1 || !GEMINI_API_KEY_2 || !GEMINI_API_KEY_3) {
+    throw new Error('GEMINI_API_KEY_1, GEMINI_API_KEY_2, and GEMINI_API_KEY_3 must be set in environment variables. Do not hardcode API keys.');
 }
 // Create clients for all keys
 const client1 = new generative_ai_1.GoogleGenerativeAI(GEMINI_API_KEY_1);

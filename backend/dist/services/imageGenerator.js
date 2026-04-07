@@ -136,7 +136,10 @@ async function generateImage(imagePrompt, storyContext) {
         if (!imagePrompt || imagePrompt.length === 0) {
             throw new Error('Image prompt is required');
         }
-        const POLLINATIONS_API_KEY = process.env.POLLINATIONS_API_KEY || 'pk_2qc64bm0ORLUfzZK';
+        const POLLINATIONS_API_KEY = process.env.POLLINATIONS_API_KEY;
+        if (!POLLINATIONS_API_KEY) {
+            throw new Error('POLLINATIONS_API_KEY must be set in environment variables. Do not hardcode API keys.');
+        }
         const MAX_RETRIES = 3;
         for (let i = 0; i < MAX_RETRIES; i++) {
             try {
