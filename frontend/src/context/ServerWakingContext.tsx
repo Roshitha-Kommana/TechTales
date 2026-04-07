@@ -1,4 +1,4 @@
-import React, { createContext, useState, useCallback, ReactNode } from 'react';
+import React, { createContext, useState, ReactNode } from 'react';
 
 interface ServerWakingContextType {
   isWakingUp: boolean;

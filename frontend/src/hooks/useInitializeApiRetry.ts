@@ -11,10 +11,6 @@ export const useInitializeApiRetry = () => {
   const { setIsWakingUp } = useServerWaking();
 
   useEffect(() => {
-    // Remove any existing error interceptors to avoid duplicates
-    // The interceptor ID is returned when we add it
-    const errorInterceptorId = api.interceptors.response.handlers.length - 1;
-
     // Add retry interceptor with context callback
     api.interceptors.response.use(
       undefined, // Success handler - we only care about errors
