@@ -76,7 +76,6 @@ const StoryBook: React.FC<StoryBookProps> = ({ story, onStoryEnd, onStoryUpdate 
   const [isTranslating, setIsTranslating] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [editedText, setEditedText] = useState('');
-  const [isSaving, setIsSaving] = useState(false);
   const [showImageUpload, setShowImageUpload] = useState(false);
   const [selectedImageFile, setSelectedImageFile] = useState<File | null>(null);
   const [isUploadingImage, setIsUploadingImage] = useState(false);
@@ -86,13 +85,10 @@ const StoryBook: React.FC<StoryBookProps> = ({ story, onStoryEnd, onStoryUpdate 
   const [noteTitle, setNoteTitle] = useState('');
   const [noteContent, setNoteContent] = useState('');
   const [isSavingNote, setIsSavingNote] = useState(false);
-  const [bookReady, setBookReady] = useState(false);
 
   const bookRef = useRef<HTMLDivElement>(null);
   const pageFlipRef = useRef<PageFlip | null>(null);
   const audioRef = useRef<HTMLAudioElement | null>(null);
-  const prevTextRef = useRef<string | null>(null);
-  const prevVoiceRef = useRef<string | null>(null);
 
   // Initialize speech synthesis and load voices (Removed in favor of Deepgram)
 
@@ -167,7 +163,6 @@ const StoryBook: React.FC<StoryBookProps> = ({ story, onStoryEnd, onStoryUpdate 
             });
 
             pageFlipRef.current = pageFlip;
-            setBookReady(true);
           }
         }
       }, 100);
@@ -239,12 +234,6 @@ const StoryBook: React.FC<StoryBookProps> = ({ story, onStoryEnd, onStoryUpdate 
       setCurrentPage(currentPage - 1);
     }
   }, [currentPage]);
-
-  const getTextToRead = (): string => {
-    const currentPageData = localStory.pages[currentPage];
-    const pageNum = currentPageData.pageNumber || currentPage + 1;
-    return translatedText[pageNum] || currentPageData.text;
-  };
 
   const playNextPage = async (pageIdx: number) => {
     if (pageIdx >= localStory.pages.length) {
@@ -420,6 +409,7 @@ const StoryBook: React.FC<StoryBookProps> = ({ story, onStoryEnd, onStoryUpdate 
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isEditing, handleNext, handlePrevious]);
 
   const currentPageData = localStory.pages[currentPage] || localStory.pages[0];

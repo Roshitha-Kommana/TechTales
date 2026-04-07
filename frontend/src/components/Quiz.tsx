@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Quiz as QuizType, QuizQuestion } from '../types';
+import { Quiz as QuizType } from '../types';
 
 interface QuizProps {
   quiz: QuizType;
