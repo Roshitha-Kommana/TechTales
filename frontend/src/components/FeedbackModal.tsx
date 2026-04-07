@@ -36,7 +36,8 @@ const FeedbackModal: React.FC<FeedbackModalProps> = ({
     if (isOpen && !feedback) {
       loadFeedback();
     }
-  }, [isOpen]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen, feedback]);
 
   const loadFeedback = async () => {
     setIsLoading(true);
@@ -56,7 +57,6 @@ const FeedbackModal: React.FC<FeedbackModalProps> = ({
       }
     } catch (error: any) {
       console.error('Error loading feedback:', error);
-      const errorMessage = error?.response?.data?.error || error?.message || 'Unknown error';
       console.error('Error details:', error?.response?.data);
 
       toast.error('Failed to load personalized feedback. Showing default feedback.');

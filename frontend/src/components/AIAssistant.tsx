@@ -103,7 +103,7 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ storyContext }) => {
       .replace(/\*([^*]+)\*/g, '$1')
       .replace(/_([^_]+)_/g, '$1')
       // Remove bullet points and replace with clean format
-      .replace(/^[\-\*]\s+/gm, '• ')
+      .replace(/^[-*]\s+/gm, '• ')
       // Remove code blocks
       .replace(/```[\s\S]*?```/g, (match) => {
         return match.replace(/```\w*\n?/g, '').trim();
