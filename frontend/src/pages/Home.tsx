@@ -111,7 +111,6 @@ const Home: React.FC = () => {
   }, []);
 
   const loadDashboardData = async () => {
-    setLoadingStats(true);
     try {
       const [analyticsRes, storiesRes] = await Promise.all([
         quizzesApi.getAnalytics(),
@@ -128,8 +127,6 @@ const Home: React.FC = () => {
       console.error('Error loading dashboard data:', error);
       const errorMsg = error?.message || error?.error || 'Failed to load dashboard data. Please try again.';
       toast.error(errorMsg);
-    } finally {
-      setLoadingStats(false);
     }
   };
 
