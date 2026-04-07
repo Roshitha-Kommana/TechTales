@@ -216,7 +216,6 @@ const Home: React.FC = () => {
 
 
   const averageScore = analytics?.averageScore || 0;
-  const areasOfConcern = analytics?.allAreasOfConcern || {};
 
   return (
     <div className="min-h-screen bg-gray-50">

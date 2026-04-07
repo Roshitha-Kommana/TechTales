@@ -9,7 +9,6 @@ import {
   FaChartLine,
   FaTrophy,
   FaStar,
-  FaExclamationTriangle,
 } from 'react-icons/fa';
 import {
   FaFire,
@@ -17,17 +16,11 @@ import {
   FaCalendarDays as FaCalendarAlt,
   FaMedal,
   FaCircleCheck as FaCheckCircle,
-  FaCircleXmark as FaTimesCircle,
-  FaArrowUp,
-  FaArrowDown
 } from 'react-icons/fa6';
 import {
   BarChart,
   Bar,
-  LineChart,
   Line,
-  PieChart,
-  Pie,
   Cell,
   AreaChart,
   Area,
@@ -47,14 +40,6 @@ import {
 import { ComprehensiveAnalytics } from '../types';
 import { quizzesApi } from '../services/api';
 import toast from 'react-hot-toast';
-
-const COLORS = ['#309898', '#E38EC9', '#68C8FB', '#86F178', '#FFA07A', '#9B59B6'];
-const GRADIENT_COLORS = [
-  { start: '#309898', end: '#68C8FB' },
-  { start: '#E38EC9', end: '#FFA07A' },
-  { start: '#86F178', end: '#309898' },
-  { start: '#9B59B6', end: '#E38EC9' },
-];
 
 // Animated Counter Component
 const AnimatedCounter: React.FC<{ value: number; suffix?: string; duration?: number }> = ({
@@ -235,7 +220,7 @@ const Analytics: React.FC = () => {
     );
   }
 
-  const { stats, topicPerformance, timeSpentData, genreDistribution, dailyProgress, recentQuizzes, scoreTrend, skillLevel, achievements } = analytics;
+  const { stats, topicPerformance, genreDistribution, dailyProgress, recentQuizzes, scoreTrend, skillLevel, achievements } = analytics;
 
   return (
     <div className="min-h-screen bg-papaya">
