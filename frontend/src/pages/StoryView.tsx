@@ -69,6 +69,7 @@ const StoryView: React.FC = () => {
     if (id) {
       loadStory();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
   const handleStoryEnd = async () => {

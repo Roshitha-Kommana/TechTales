@@ -235,7 +235,7 @@ const Analytics: React.FC = () => {
     );
   }
 
-  const { stats, topicPerformance, timeSpentData, genreDistribution, dailyProgress, recentQuizzes, scoreTrend, skillLevel, achievements, topAreasOfConcern } = analytics;
+  const { stats, topicPerformance, timeSpentData, genreDistribution, dailyProgress, recentQuizzes, scoreTrend, skillLevel, achievements } = analytics;
 
   return (
     <div className="min-h-screen bg-papaya">

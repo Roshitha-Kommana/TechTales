@@ -7,10 +7,8 @@ import {
   FaTrophy,
   FaUser,
   FaPlay,
-  FaExclamationTriangle,
   FaStar,
   FaBolt,
-  FaClock,
   FaSignOutAlt,
   FaFileAlt,
   FaBars,
@@ -38,7 +36,6 @@ const Home: React.FC = () => {
   const [showConceptSelector, setShowConceptSelector] = useState(false);
   const [analytics, setAnalytics] = useState<QuizAnalytics | null>(null);
   const [stories, setStories] = useState<Story[]>([]);
-  const [loadingStats, setLoadingStats] = useState(true);
   const [sidebarOpen, setSidebarOpen] = useState(true); // Open by default on desktop
   const [learningStreak, setLearningStreak] = useState(0);
   const [currentTime, setCurrentTime] = useState<{ hours: number; minutes: number; seconds: number }>({ hours: 0, minutes: 0, seconds: 0 });
@@ -223,10 +220,6 @@ const Home: React.FC = () => {
 
   const averageScore = analytics?.averageScore || 0;
   const areasOfConcern = analytics?.allAreasOfConcern || {};
-  const topConcerns = Object.entries(areasOfConcern)
-    .sort(([, a], [, b]) => b - a)
-    .slice(0, 5)
-    .map(([concern]) => concern);
 
   return (
     <div className="min-h-screen bg-gray-50">
