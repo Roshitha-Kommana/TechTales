@@ -20,7 +20,7 @@ import {
     FaChartLine,
     FaCamera,
 } from 'react-icons/fa6';
-import { authApi, User, ProfileUpdateData } from '../services/auth';
+import { authApi, User } from '../services/auth';
 import { quizzesApi } from '../services/api';
 import { useProfileImage } from '../hooks/useProfileImage';
 import toast from 'react-hot-toast';

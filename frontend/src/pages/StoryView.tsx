@@ -21,12 +21,6 @@ const StoryView: React.FC = () => {
   const [isGeneratingQuiz, setIsGeneratingQuiz] = useState(false);
   const [isSubmittingQuiz, setIsSubmittingQuiz] = useState(false);
 
-  useEffect(() => {
-    if (id) {
-      loadStory();
-    }
-  }, [id]);
-
   const loadStory = async () => {
     if (!id) return;
     setIsLoading(true);
@@ -70,6 +64,12 @@ const StoryView: React.FC = () => {
       setIsLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (id) {
+      loadStory();
+    }
+  }, [id]);
 
   const handleStoryEnd = async () => {
     if (!id || !story) return;

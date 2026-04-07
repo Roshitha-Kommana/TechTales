@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { FaTrophy, FaArrowLeft, FaClock } from 'react-icons/fa';
 import { FaFire } from 'react-icons/fa6';
 import { leaderboardApi } from '../services/api';
-import { LeaderboardData, LeaderboardUser, WeekInfo } from '../types';
+import { LeaderboardData, LeaderboardUser } from '../types';
 import { useProfileImage } from '../hooks/useProfileImage';
 import toast from 'react-hot-toast';
 
@@ -94,12 +94,6 @@ const Leaderboard: React.FC = () => {
     if (streak >= 7) return 'text-orange-500';
     if (streak >= 3) return 'text-yellow-500';
     return 'text-gray-400';
-  };
-
-  const getStreakFlame = (streak: number) => {
-    if (streak >= 7) return '🔥';
-    if (streak >= 3) return '🔥';
-    return '🔥';
   };
 
   if (isLoading) {
