@@ -1,7 +1,8 @@
 import axios from 'axios';
+import { BASE_URL } from '../config/api';
 
 // Ensure we have a valid base URL
-let API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+let API_BASE_URL = BASE_URL;
 
 // Ensure the base URL is complete and valid
 if (!API_BASE_URL.startsWith('http://') && !API_BASE_URL.startsWith('https://')) {
@@ -22,8 +23,7 @@ if (!API_BASE_URL.includes('/api') && !API_BASE_URL.endsWith('/api')) {
 API_BASE_URL = API_BASE_URL.replace(/\/+$/, '');
 
 // Debug: Log the base URL being used
-console.log('[API Config] Base URL:', API_BASE_URL);
-console.log('[API Config] REACT_APP_API_URL:', process.env.REACT_APP_API_URL);
+console.log('[API Config] Final processed URL (with /api):', API_BASE_URL);
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -96,9 +96,9 @@ api.interceptors.response.use(
         error.code === 'ECONNREFUSED';
 
       if (isConnectionRefused) {
-        console.error('Backend server is not running. Please start the backend server.');
+        console.error(`Backend server is not running at ${BASE_URL}.`);
         return Promise.reject({
-          message: 'Backend server is not running. Please start the server at http://localhost:5000',
+          message: `Backend server is not running. Please check: ${BASE_URL}`,
           isNetworkError: true,
           isConnectionRefused: true,
         });
