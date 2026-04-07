@@ -17,19 +17,69 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
-const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
+const NODE_ENV = process.env.NODE_ENV || 'development';
 
-// Middleware - Allow both port 3000 and 3001 for CORS
-const allowedOrigins = [FRONTEND_URL, 'http://localhost:3001', 'http://localhost:3000'];
+/**
+ * Configure CORS allowed origins
+ * Development: Allow localhost ports 3000 and 3001
+ * Production: Allow specific frontend URLs from environment variables
+ */
+const getAllowedOrigins = (): string[] => {
+  const producationOrigins: string[] = [];
+  
+  // Production frontend URLs from environment variables
+  if (process.env.FRONTEND_URL) {
+    producationOrigins.push(process.env.FRONTEND_URL);
+  }
+  if (process.env.VERCEL_URL) {
+    producationOrigins.push(`https://${process.env.VERCEL_URL}`);
+  }
+  
+  // Development origins (always allowed for local development)
+  const developmentOrigins = [
+    'http://localhost:3000',
+    'http://localhost:3001',
+    'http://127.0.0.1:3000',
+    'http://127.0.0.1:3001',
+  ];
+
+  if (NODE_ENV === 'production') {
+    return producationOrigins.length > 0 ? producationOrigins : developmentOrigins;
+  }
+
+  // In development, allow both development and production origins
+  return [...developmentOrigins, ...producationOrigins];
+};
+
+const allowedOrigins = getAllowedOrigins();
+
+console.log(`🔒 CORS Configuration (${NODE_ENV}):`, allowedOrigins);
+
+/**
+ * CORS Middleware Configuration
+ * - Allows specified origins only (no '*' in production)
+ * - Enables credentials (cookies, authorization headers)
+ * - Handles preflight requests (OPTIONS)
+ * - Allows common headers and methods
+ */
 app.use(cors({
   origin: (origin, callback) => {
-    if (!origin) return callback(null, true);
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) {
+      return callback(null, true);
+    }
+
     if (allowedOrigins.includes(origin)) {
       return callback(null, true);
     }
-    return callback(null, false);
+
+    console.warn(`❌ CORS rejected request from origin: ${origin}`);
+    return callback(new Error('CORS policy: Origin not allowed'));
   },
-  credentials: true,
+  credentials: true, // Important: Allows cookies and authorization headers
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  maxAge: 86400, // Preflight cache time (24 hours)
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

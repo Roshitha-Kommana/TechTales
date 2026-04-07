@@ -20,19 +20,59 @@ const ttsRoutes_1 = __importDefault(require("./routes/ttsRoutes"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 5000;
-const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
-// Middleware - Allow both port 3000 and 3001 for CORS
-const allowedOrigins = [FRONTEND_URL, 'http://localhost:3001', 'http://localhost:3000'];
+const NODE_ENV = process.env.NODE_ENV || 'development';
+/**
+ * Configure CORS allowed origins
+ * Development: Allow localhost ports 3000 and 3001
+ * Production: Allow specific frontend URLs from environment variables
+ */
+const getAllowedOrigins = () => {
+    const producationOrigins = [];
+    // Production frontend URLs from environment variables
+    if (process.env.FRONTEND_URL) {
+        producationOrigins.push(process.env.FRONTEND_URL);
+    }
+    if (process.env.VERCEL_URL) {
+        producationOrigins.push(`https://${process.env.VERCEL_URL}`);
+    }
+    // Development origins (always allowed for local development)
+    const developmentOrigins = [
+        'http://localhost:3000',
+        'http://localhost:3001',
+        'http://127.0.0.1:3000',
+        'http://127.0.0.1:3001',
+    ];
+    if (NODE_ENV === 'production') {
+        return producationOrigins.length > 0 ? producationOrigins : developmentOrigins;
+    }
+    // In development, allow both development and production origins
+    return [...developmentOrigins, ...producationOrigins];
+};
+const allowedOrigins = getAllowedOrigins();
+console.log(`🔒 CORS Configuration (${NODE_ENV}):`, allowedOrigins);
+/**
+ * CORS Middleware Configuration
+ * - Allows specified origins only (no '*' in production)
+ * - Enables credentials (cookies, authorization headers)
+ * - Handles preflight requests (OPTIONS)
+ * - Allows common headers and methods
+ */
 app.use((0, cors_1.default)({
     origin: (origin, callback) => {
-        if (!origin)
+        // Allow requests with no origin (like mobile apps or curl requests)
+        if (!origin) {
             return callback(null, true);
+        }
         if (allowedOrigins.includes(origin)) {
             return callback(null, true);
         }
-        return callback(null, false);
+        console.warn(`❌ CORS rejected request from origin: ${origin}`);
+        return callback(new Error('CORS policy: Origin not allowed'));
     },
-    credentials: true,
+    credentials: true, // Important: Allows cookies and authorization headers
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    maxAge: 86400, // Preflight cache time (24 hours)
 }));
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
@@ -43,7 +83,7 @@ app.use((req, res, next) => {
 });
 // Health check
 app.get('/health', (req, res) => {
-    res.json({ status: 'ok', message: 'StoryWizard API is running' });
+    res.json({ status: 'ok', message: 'Tech Tales API is running' });
 });
 // API Routes - Auth routes first
 app.use('/api/auth', auth_1.default);

@@ -162,7 +162,7 @@ async function generateImage(imagePrompt, storyContext) {
                 console.log(`🔗 URL: ${POLLINATIONS_API_URL.substring(0, 100)}...`);
                 const headers = {
                     'Accept': 'image/*',
-                    'User-Agent': 'StoryWizard/1.0',
+                    'User-Agent': 'TechTales/1.0',
                 };
                 if (POLLINATIONS_API_KEY)
                     headers['Authorization'] = `Bearer ${POLLINATIONS_API_KEY}`;

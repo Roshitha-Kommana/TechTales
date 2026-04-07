@@ -18,7 +18,7 @@ Return ONLY a valid JSON object with the following structure:
             model: gemini_1.GEMINI_CONFIG.storyModel,
             generationConfig: {
                 temperature: 0.7,
-                maxOutputTokens: 500,
+                maxOutputTokens: 1500,
             },
         });
         const result = await model.generateContent(prompt);

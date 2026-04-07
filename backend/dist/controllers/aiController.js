@@ -10,7 +10,7 @@ const chatWithAI = async (req, res) => {
             return;
         }
         // Build context-aware prompt
-        let systemPrompt = `You are a friendly and helpful AI assistant for a children's story application called StoryWizard.
+        let systemPrompt = `You are a friendly and helpful AI assistant for a children's story application called Tech Tales.
 
 RESPONSE STYLE:
 - Write in a natural, conversational tone like you're chatting with a friend
