@@ -232,7 +232,6 @@ export const generateImagesController = async (req: Request, res: Response): Pro
             page.text,  // Full story text for THIS specific page
             story.concept,
             page.pageNumber,
-            story.ageGroup || '8-12',
             story.title,
             story.adventureStyle || 'adventure'
           );
