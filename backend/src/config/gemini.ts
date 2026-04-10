@@ -117,10 +117,10 @@ export const geminiImage = {
 };
 
 export const GEMINI_CONFIG = {
-  storyModel: 'gemini-2.5-flash',
-  quizModel: 'gemini-2.5-flash',
-  imageModel: 'gemini-2.5-flash',
-  fallbackModel: 'gemini-2.5-flash-lite',
+  storyModel: 'gemini-3-flash-preview',
+  quizModel: 'gemini-3-flash-preview',
+  imageModel: 'gemini-3-flash-preview',
+  fallbackModel: 'gemini-3.1-flash-lite-preview',
   temperature: {
     story: 0.8,
     quiz: 0.7,

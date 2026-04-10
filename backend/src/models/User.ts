@@ -9,7 +9,6 @@ export interface IUser extends Document {
   lastLoginDate?: Date;
   lastActivityDate?: Date;
   points?: number;
-  weeklyPoints?: number;
   weakAreas?: string[];
   // Profile customization
   avatarColor?: string;
@@ -30,7 +29,6 @@ const UserSchema = new Schema<IUser>(
     lastLoginDate: { type: Date },
     lastActivityDate: { type: Date },
     points: { type: Number, default: 0 },
-    weeklyPoints: { type: Number, default: 0 },
     weakAreas: [{ type: String }],
     // Profile customization
     avatarColor: { type: String, default: '#309898' },

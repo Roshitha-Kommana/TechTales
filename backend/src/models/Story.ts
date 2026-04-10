@@ -13,7 +13,7 @@ export interface IStory extends Document {
   title: string;
   concept: string;
   pages: IStoryPage[];
-  ageGroup?: string;
+  ageGroup?: never; // Removed
   difficulty?: string;
   adventureStyle?: string;
   keyConcepts?: string[];
@@ -36,7 +36,7 @@ const StorySchema = new Schema<IStory>(
     title: { type: String, required: true },
     concept: { type: String, required: true },
     pages: [StoryPageSchema],
-    ageGroup: { type: String, default: '8-12' },
+    // ageGroup field removed
     difficulty: { type: String, default: 'medium' },
     adventureStyle: { type: String, default: 'adventure' },
     keyConcepts: [{ type: String }],

@@ -184,11 +184,12 @@ Return ONLY the JSON object, nothing else.`;
         model: modelName.trim(),
       };
 
-      // Add generation config if temperature is defined
+      // Add generation config with JSON response type for much faster structure generation
+      modelConfig.generationConfig = {
+        responseMimeType: 'application/json',
+      };
       if (temperature !== undefined && temperature !== null) {
-        modelConfig.generationConfig = {
-          temperature: temperature,
-        };
+        modelConfig.generationConfig.temperature = temperature;
       }
 
       console.log(`📝 Model config:`, JSON.stringify(modelConfig, null, 2));

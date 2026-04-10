@@ -3,38 +3,27 @@ import mongoose, { Schema, Document } from 'mongoose';
 export interface IWeeklyLeaderboard extends Document {
   userId: mongoose.Types.ObjectId;
   weekStartDate: Date;
-  weeklyPoints: number;
-  quizzesCompleted: number;
+  weekEndDate: Date;
+  points: number;
   createdAt: Date;
   updatedAt: Date;
 }
 
-const WeeklyLeaderboardSchema = new Schema<IWeeklyLeaderboard>(
+const WeeklyLeaderboardSchema = new Schema(
   {
-    userId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+    userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
     weekStartDate: { type: Date, required: true },
-    weeklyPoints: { type: Number, default: 0 },
-    quizzesCompleted: { type: Number, default: 0 },
+    weekEndDate: { type: Date, required: true },
+    points: { type: Number, default: 0 },
   },
   {
     timestamps: true,
   }
 );
 
-// Compound index to ensure unique user per week
+// Compound index to quickly find a user's record for a specific week and enforce uniqueness
 WeeklyLeaderboardSchema.index({ userId: 1, weekStartDate: 1 }, { unique: true });
-
-// Index for efficient querying
-WeeklyLeaderboardSchema.index({ weekStartDate: 1, weeklyPoints: -1 });
-
-// Helper function to get the start of the current week (Monday)
-export function getWeekStartDate(date: Date = new Date()): Date {
-  const d = new Date(date);
-  const day = d.getDay();
-  const diff = d.getDate() - day + (day === 0 ? -6 : 1); // Adjust for Sunday
-  d.setDate(diff);
-  d.setHours(0, 0, 0, 0);
-  return d;
-}
+// Index on points + weekStartDate for fast leaderboard queries
+WeeklyLeaderboardSchema.index({ weekStartDate: 1, points: -1 });
 
 export const WeeklyLeaderboard = mongoose.model<IWeeklyLeaderboard>('WeeklyLeaderboard', WeeklyLeaderboardSchema);

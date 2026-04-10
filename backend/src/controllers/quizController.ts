@@ -4,7 +4,7 @@ import { Story } from '../models/Story';
 import { User } from '../models/User';
 import { generateQuiz, calculateQuizAnalytics, generateQuizExplanations } from '../services/quizGenerator';
 import { AuthRequest } from '../middleware/auth';
-import { addUserPoints } from './leaderboardController';
+import { addUserPoints } from './leaderboardController'; // IDE refresh
 
 export const generateQuizController = async (req: Request, res: Response): Promise<void> => {
   try {
@@ -623,14 +623,30 @@ export const getComprehensiveAnalyticsController = async (req: Request, res: Res
 
     // === NEW: Accuracy Rate ===
     let totalCorrect = 0;
-    let totalQuestions = 0;
+    let totalQuestionsAnswered = 0;
     quizzes.forEach(q => {
       if (q.results) {
         totalCorrect += q.results.filter(r => r.isCorrect).length;
-        totalQuestions += q.results.length;
+        totalQuestionsAnswered += q.results.length;
       }
     });
-    const accuracyRate = totalQuestions > 0 ? Math.round((totalCorrect / totalQuestions) * 100) : 0;
+    const accuracyRate = totalQuestionsAnswered > 0 ? Math.round((totalCorrect / totalQuestionsAnswered) * 100) : 0;
+
+    // Calculate current week bounds for weekly points lookup
+    let weeklyPoints = 0;
+    if (user) {
+      const nowLocal = new Date();
+      const dayOfWeek = nowLocal.getDay();
+      const diffToMonday = nowLocal.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1);
+      const startOfWeek = new Date(nowLocal);
+      startOfWeek.setDate(diffToMonday);
+      startOfWeek.setHours(0, 0, 0, 0);
+
+      const mongoose = require('mongoose');
+      const { WeeklyLeaderboard } = require('../models/WeeklyLeaderboard');
+      const weeklyRecord = await WeeklyLeaderboard.findOne({ userId: user._id, weekStartDate: startOfWeek });
+      weeklyPoints = weeklyRecord ? weeklyRecord.points : 0;
+    }
 
     const analytics = {
       stats: {
@@ -641,9 +657,9 @@ export const getComprehensiveAnalyticsController = async (req: Request, res: Res
         worstTopic,
         learningStreak: user?.learningStreak || 0,
         totalPoints: user?.points || 0,
-        weeklyPoints: user?.weeklyPoints || 0,
+        weeklyPoints,
         accuracyRate,
-        totalQuestionsAnswered: totalQuestions,
+        totalQuestionsAnswered,
         totalCorrectAnswers: totalCorrect,
         quizzesThisWeek: weeklyQuizzes.length,
       },

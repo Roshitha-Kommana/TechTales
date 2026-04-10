@@ -15,7 +15,6 @@ export async function generateImagePrompt(
   storyText: string,
   concept: string,
   pageNumber: number,
-  ageGroup: string = '8-12',
   storyTitle?: string,
   adventureStyle: string = 'adventure'
 ): Promise<string> {
@@ -27,7 +26,7 @@ export async function generateImagePrompt(
   let sceneType = "scene";
 
   if (adventureStyle === 'none') {
-    prompt = `You are an expert educational illustrator creating clear, simple block diagrams, flowcharts, or infographics to explain concepts to ${ageGroup} year olds.
+    prompt = `You are an expert educational illustrator creating clear, simple block diagrams, flowcharts, or infographics to explain concepts to children.
     
     Create a precise description for a simple DIAGRAM or ILLUSTRATION that explains the content below.
     
@@ -75,7 +74,7 @@ export async function generateImagePrompt(
     - Include ALL actions, events, and moments described
     - Describe the exact setting, environment, and background from the story
     - Include specific objects, items, or elements mentioned in the text
-    - Style: Colorful, engaging, detailed, whimsical characters, vibrant colors, perfect for educational children's book for ${ageGroup} year olds
+    - Style: Colorful, engaging, detailed, whimsical characters, vibrant colors, perfect for educational children's book
     - This is a ${sceneType} from the story
     - The image prompt should be detailed enough that someone reading it would create the exact scene from the story
     
@@ -145,7 +144,7 @@ export async function generateImagePrompt(
   console.warn('⚠️ All attempts failed. Using fallback prompt.');
 
   // 3. Fallback Prompt
-  return `A detailed children's book illustration for "${storyTitle || concept}" - Page ${pageNumber}. This is a ${sceneType} that EXACTLY depicts the following story content: "${fullStoryText}". Style: Colorful, engaging, detailed, whimsical characters, vibrant colors, perfect for educational children's book for ${ageGroup} year olds.`;
+  return `A detailed children's book illustration for "${storyTitle || concept}" - Page ${pageNumber}. This is a ${sceneType} that EXACTLY depicts the following story content: "${fullStoryText}". Style: Colorful, engaging, detailed, whimsical characters, vibrant colors, perfect for educational children's book.`;
 }
 
 export async function generateImage(imagePrompt: string, storyContext?: { text?: string; title?: string; pageNumber?: number; adventureStyle?: string }): Promise<string> {

@@ -168,7 +168,7 @@ const AIAssistant: React.FC<AIAssistantProps> = ({ storyContext }) => {
             {messages.length === 0 && (
               <div className="text-center text-gray-500 mt-8">
                 <FaRobot className="text-4xl mx-auto mb-2 text-gray-300" />
-                <p className="text-sm">Ask me anything about the story or get help!</p>
+                <p className="text-sm">Hi! Ask me anything.</p>
               </div>
             )}
             {messages.map((message, index) => (

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaStar, FaBolt } from 'react-icons/fa';
+import { authApi } from '../services/auth';
 
 interface ConceptSelectorProps {
   onSelect: (
@@ -60,7 +61,10 @@ const adventureStyles = [
 
 const ConceptSelector: React.FC<ConceptSelectorProps> = ({ onSelect, isLoading, onClose }) => {
   const [concept, setConcept] = useState('');
-  const [characterName, setCharacterName] = useState('Roshitha Kommana');
+  const [characterName, setCharacterName] = useState(() => {
+    const user = authApi.getUser();
+    return user?.name || '';
+  });
   const [selectedStyle, setSelectedStyle] = useState<string>('fantasy');
   const [difficulty, setDifficulty] = useState('advanced');
   const [selectedFile, setSelectedFile] = useState<File | null>(null);

@@ -1,18 +1,24 @@
 import { useState, useEffect } from 'react';
+import { authApi } from '../services/auth';
 
 export const useProfileImage = () => {
   const [profileImage, setProfileImage] = useState<string | null>(null);
 
   useEffect(() => {
+    const user = authApi.getUser();
+    const storageKey = user ? `profileImage_${user.id}` : 'profileImage';
+
     // Initial load
-    const savedImage = localStorage.getItem('profileImage');
+    const savedImage = localStorage.getItem(storageKey);
     if (savedImage) {
       setProfileImage(savedImage);
     }
 
     // Listen for custom event for same-window updates
     const handleProfileUpdate = () => {
-      const updatedImage = localStorage.getItem('profileImage');
+      const currentUser = authApi.getUser();
+      const currentKey = currentUser ? `profileImage_${currentUser.id}` : 'profileImage';
+      const updatedImage = localStorage.getItem(currentKey);
       setProfileImage(updatedImage);
     };
 
@@ -20,7 +26,9 @@ export const useProfileImage = () => {
     
     // Listen for storage event for cross-tab updates
     const handleStorageChange = (e: StorageEvent) => {
-      if (e.key === 'profileImage') {
+      const currentUser = authApi.getUser();
+      const currentKey = currentUser ? `profileImage_${currentUser.id}` : 'profileImage';
+      if (e.key === currentKey) {
         setProfileImage(e.newValue);
       }
     };
@@ -33,10 +41,13 @@ export const useProfileImage = () => {
   }, []);
 
   const updateProfileImage = (newImage: string | null) => {
+    const user = authApi.getUser();
+    const storageKey = user ? `profileImage_${user.id}` : 'profileImage';
+
     if (newImage) {
-      localStorage.setItem('profileImage', newImage);
+      localStorage.setItem(storageKey, newImage);
     } else {
-      localStorage.removeItem('profileImage');
+      localStorage.removeItem(storageKey);
     }
     setProfileImage(newImage);
     // Dispatch event so other components in the same window update instantly

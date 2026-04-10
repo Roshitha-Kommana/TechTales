@@ -215,6 +215,19 @@ export const getCurrentUserController = async (req: Request, res: Response): Pro
     // Update learning streak on page visit
     const streak = await updateLearningStreak(user);
 
+    // Calculate current week bounds for weekly points lookup
+    const nowLocal = new Date();
+    const dayOfWeek = nowLocal.getDay();
+    const diffToMonday = nowLocal.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1);
+    const startOfWeek = new Date(nowLocal);
+    startOfWeek.setDate(diffToMonday);
+    startOfWeek.setHours(0, 0, 0, 0);
+
+    const mongoose = require('mongoose');
+    const { WeeklyLeaderboard } = require('../models/WeeklyLeaderboard');
+    const weeklyRecord = await WeeklyLeaderboard.findOne({ userId: user._id, weekStartDate: startOfWeek });
+    const weeklyPoints = weeklyRecord ? weeklyRecord.points : 0;
+
     res.json({
       success: true,
       user: {
@@ -223,7 +236,7 @@ export const getCurrentUserController = async (req: Request, res: Response): Pro
         name: user.name,
         learningStreak: streak,
         points: user.points || 0,
-        weeklyPoints: user.weeklyPoints || 0,
+        weeklyPoints,
         avatarColor: user.avatarColor || '#309898',
         bio: user.bio || '',
         preferredDifficulty: user.preferredDifficulty || 'medium',
@@ -275,6 +288,19 @@ export const updateProfileController = async (req: Request, res: Response): Prom
 
     await user.save();
 
+    // Calculate current week bounds for weekly points lookup
+    const now = new Date();
+    const dayOfWeek = now.getDay();
+    const diffToMonday = now.getDate() - dayOfWeek + (dayOfWeek === 0 ? -6 : 1);
+    const startOfWeek = new Date(now);
+    startOfWeek.setDate(diffToMonday);
+    startOfWeek.setHours(0, 0, 0, 0);
+
+    const mongoose = require('mongoose');
+    const { WeeklyLeaderboard } = require('../models/WeeklyLeaderboard');
+    const weeklyRecord = await WeeklyLeaderboard.findOne({ userId: user._id, weekStartDate: startOfWeek });
+    const weeklyPoints = weeklyRecord ? weeklyRecord.points : 0;
+
     res.json({
       success: true,
       message: 'Profile updated successfully',
@@ -284,7 +310,7 @@ export const updateProfileController = async (req: Request, res: Response): Prom
         name: user.name,
         learningStreak: user.learningStreak || 0,
         points: user.points || 0,
-        weeklyPoints: user.weeklyPoints || 0,
+        weeklyPoints,
         avatarColor: user.avatarColor || '#309898',
         bio: user.bio || '',
         preferredDifficulty: user.preferredDifficulty || 'medium',

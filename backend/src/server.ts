@@ -3,7 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { connectDatabase } from './config/database';
 import storyRoutes from './routes/stories';
-import conceptRoutes from './routes/concepts';
+
 import imageRoutes from './routes/images';
 import quizRoutes from './routes/quizzes';
 import authRoutes from './routes/auth';
@@ -49,7 +49,7 @@ app.get('/health', (req, res) => {
 app.use('/api/auth', authRoutes);
 console.log('✅ Auth routes registered: /api/auth/login, /api/auth/signup, /api/auth/me');
 app.use('/api/stories', storyRoutes);
-app.use('/api/concepts', conceptRoutes);
+
 app.use('/api/images', imageRoutes);
 app.use('/api/quizzes', quizRoutes);
 app.use('/api/ai', aiRoutes);
