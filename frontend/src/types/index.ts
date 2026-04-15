@@ -6,6 +6,7 @@ export interface Story {
   ageGroup?: string;
   difficulty?: string;
   keyConcepts?: string[];
+  createdAt?: string;
 }
 
 export interface StoryPage {

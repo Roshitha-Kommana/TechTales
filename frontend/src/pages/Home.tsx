@@ -214,6 +214,25 @@ const Home: React.FC = () => {
 
   const storiesCompleted = stories.length;
 
+  const getStoriesCompletedThisWeek = () => {
+    const now = new Date();
+    // getDay() returns 0 for Sunday, 1 for Monday, etc.
+    const dayOfWeek = now.getDay();
+    // Calculate days to subtract to get to Monday (if Sunday, subtract 6)
+    const diffToMonday = dayOfWeek === 0 ? 6 : dayOfWeek - 1;
+    
+    // Set to start of Monday
+    const startOfWeek = new Date(now);
+    startOfWeek.setDate(now.getDate() - diffToMonday);
+    startOfWeek.setHours(0, 0, 0, 0);
+
+    return stories.filter(story => {
+      if (!story.createdAt) return false;
+      return new Date(story.createdAt) >= startOfWeek;
+    }).length;
+  };
+  const storiesCompletedThisWeek = getStoriesCompletedThisWeek();
+
 
   const averageScore = analytics?.averageScore || 0;
 
@@ -421,7 +440,7 @@ const Home: React.FC = () => {
                 <FaBook className="text-cyan text-xl md:text-2xl" />
               </div>
               <div className="text-3xl md:text-4xl font-bold text-black mb-2">{storiesCompleted}</div>
-              <p className="text-black text-xs md:text-sm font-medium opacity-70">+{storiesCompleted} this week</p>
+              <p className="text-black text-xs md:text-sm font-medium opacity-70">+{storiesCompletedThisWeek} this week</p>
             </div>
 
             {/* Average Score */}

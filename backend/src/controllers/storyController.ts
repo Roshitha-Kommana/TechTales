@@ -116,6 +116,7 @@ export const generateStoryController = async (req: Request, res: Response): Prom
         ageGroup: story.ageGroup,
         difficulty: story.difficulty,
         keyConcepts: story.keyConcepts || [],
+        createdAt: story.createdAt,
       },
     });
   } catch (error: any) {
@@ -191,6 +192,7 @@ export const getStoryController = async (req: Request, res: Response): Promise<v
       ageGroup: story.ageGroup,
       difficulty: story.difficulty,
       keyConcepts: story.keyConcepts || [],
+      createdAt: story.createdAt,
     };
 
     res.json({ success: true, story: transformedStory });
@@ -366,6 +368,7 @@ export const getAllStoriesController = async (req: Request, res: Response): Prom
       ageGroup: story.ageGroup,
       difficulty: story.difficulty,
       keyConcepts: story.keyConcepts || [],
+      createdAt: story.createdAt,
     }));
 
     res.json({ success: true, stories: transformedStories });
